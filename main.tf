@@ -48,3 +48,12 @@ module "peering" {
 	name_db_to_web = var.name_db_to_web
 	name_web_to_db = var.name_web_to_db
 }
+
+module "nsg" {
+	source = "./modules/nsg"
+	resource_group_name = module.network_lab.name
+	nsg_name = var.nsg_name
+	location = var.location
+	subnet_id = module.vnet_db.subnet
+
+}

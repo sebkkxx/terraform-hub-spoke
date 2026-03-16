@@ -34,3 +34,6 @@ variable "name_db_to_web" {
 variable "name_web_to_db" {
 	default = "web-to-db"
 }
+variable "nsg_name" {
+	default = "nsg"
+}
