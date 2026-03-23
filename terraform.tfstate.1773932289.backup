@@ -1,0 +1,300 @@
+{
+  "version": 4,
+  "terraform_version": "1.14.7",
+  "serial": 38,
+  "lineage": "8f7ac6e7-6390-ba32-b704-8c058d42e326",
+  "outputs": {},
+  "resources": [
+    {
+      "module": "module.network_lab",
+      "mode": "managed",
+      "type": "azurerm_resource_group",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "/subscriptions/172f18aa-9a05-4267-834e-5f14c13a5973/resourceGroups/rg-network-lab",
+            "location": "canadacentral",
+            "managed_by": "",
+            "name": "rg-network-lab",
+            "tags": {},
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo1NDAwMDAwMDAwMDAwLCJkZWxldGUiOjU0MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjo1NDAwMDAwMDAwMDAwfX0="
+        }
+      ]
+    },
+    {
+      "module": "module.vm_db",
+      "mode": "managed",
+      "type": "azurerm_network_interface",
+      "name": "nic",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "accelerated_networking_enabled": false,
+            "applied_dns_servers": [],
+            "auxiliary_mode": "",
+            "auxiliary_sku": "",
+            "dns_servers": [],
+            "edge_zone": "",
+            "enable_accelerated_networking": false,
+            "enable_ip_forwarding": false,
+            "id": "/subscriptions/172f18aa-9a05-4267-834e-5f14c13a5973/resourceGroups/rg-network-lab/providers/Microsoft.Network/networkInterfaces/vm-db-nic",
+            "internal_dns_name_label": "",
+            "internal_domain_name_suffix": "",
+            "ip_configuration": [
+              {
+                "gateway_load_balancer_frontend_ip_configuration_id": "",
+                "name": "internal",
+                "primary": true,
+                "private_ip_address": "10.2.1.4",
+                "private_ip_address_allocation": "Dynamic",
+                "private_ip_address_version": "IPv4",
+                "public_ip_address_id": "",
+                "subnet_id": "/subscriptions/172f18aa-9a05-4267-834e-5f14c13a5973/resourceGroups/rg-network-lab/providers/Microsoft.Network/virtualNetworks/vnet-db/subnets/db-subnet"
+              }
+            ],
+            "ip_forwarding_enabled": false,
+            "location": "canadacentral",
+            "mac_address": "60-45-BD-5B-90-4E",
+            "name": "vm-db-nic",
+            "private_ip_address": "10.2.1.4",
+            "private_ip_addresses": [
+              "10.2.1.4"
+            ],
+            "resource_group_name": "rg-network-lab",
+            "tags": {},
+            "timeouts": null,
+            "virtual_machine_id": "/subscriptions/172f18aa-9a05-4267-834e-5f14c13a5973/resourceGroups/rg-network-lab/providers/Microsoft.Compute/virtualMachines/vm-db"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjoxODAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.network_lab.azurerm_resource_group.this",
+            "module.vm_db.azurerm_public_ip.pip",
+            "module.vnet_db.azurerm_subnet.db_subnet",
+            "module.vnet_db.azurerm_virtual_network.vnet_db"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.vm_db",
+      "mode": "managed",
+      "type": "azurerm_public_ip",
+      "name": "pip",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": []
+    },
+    {
+      "module": "module.vm_db",
+      "mode": "managed",
+      "type": "azurerm_windows_virtual_machine",
+      "name": "vm",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "additional_capabilities": [],
+            "additional_unattend_content": [],
+            "admin_password": "Dban1!@)",
+            "admin_username": "kiwiadmin",
+            "allow_extension_operations": true,
+            "availability_set_id": "",
+            "boot_diagnostics": [],
+            "bypass_platform_safety_checks_on_user_schedule_enabled": false,
+            "capacity_reservation_group_id": "",
+            "computer_name": "vm-db",
+            "custom_data": null,
+            "dedicated_host_group_id": "",
+            "dedicated_host_id": "",
+            "disk_controller_type": "",
+            "edge_zone": "",
+            "enable_automatic_updates": true,
+            "encryption_at_host_enabled": false,
+            "eviction_policy": "",
+            "extensions_time_budget": "PT1H30M",
+            "gallery_application": [],
+            "hotpatching_enabled": false,
+            "id": "/subscriptions/172f18aa-9a05-4267-834e-5f14c13a5973/resourceGroups/rg-network-lab/providers/Microsoft.Compute/virtualMachines/vm-db",
+            "identity": [],
+            "license_type": "",
+            "location": "canadacentral",
+            "max_bid_price": -1,
+            "name": "vm-db",
+            "network_interface_ids": [
+              "/subscriptions/172f18aa-9a05-4267-834e-5f14c13a5973/resourceGroups/rg-network-lab/providers/Microsoft.Network/networkInterfaces/vm-db-nic"
+            ],
+            "os_disk": [
+              {
+                "caching": "ReadWrite",
+                "diff_disk_settings": [],
+                "disk_encryption_set_id": "",
+                "disk_size_gb": 127,
+                "name": "harddisk",
+                "secure_vm_disk_encryption_set_id": "",
+                "security_encryption_type": "",
+                "storage_account_type": "Standard_LRS",
+                "write_accelerator_enabled": false
+              }
+            ],
+            "os_image_notification": [],
+            "patch_assessment_mode": "ImageDefault",
+            "patch_mode": "AutomaticByOS",
+            "plan": [],
+            "platform_fault_domain": -1,
+            "priority": "Regular",
+            "private_ip_address": "10.2.1.4",
+            "private_ip_addresses": [
+              "10.2.1.4"
+            ],
+            "provision_vm_agent": true,
+            "proximity_placement_group_id": "",
+            "public_ip_address": "",
+            "public_ip_addresses": [],
+            "reboot_setting": "",
+            "resource_group_name": "rg-network-lab",
+            "secret": [],
+            "secure_boot_enabled": false,
+            "size": "Standard_B2als_v2",
+            "source_image_id": "",
+            "source_image_reference": [
+              {
+                "offer": "WindowsServer",
+                "publisher": "MicrosoftWindowsServer",
+                "sku": "2022-Datacenter",
+                "version": "latest"
+              }
+            ],
+            "tags": {},
+            "termination_notification": [],
+            "timeouts": null,
+            "timezone": "",
+            "user_data": "",
+            "virtual_machine_id": "a34db77b-19ea-4111-a119-16226a73338b",
+            "virtual_machine_scale_set_id": "",
+            "vm_agent_platform_updates_enabled": true,
+            "vtpm_enabled": false,
+            "winrm_listener": [],
+            "zone": ""
+          },
+          "sensitive_attributes": [
+            [
+              {
+                "type": "get_attr",
+                "value": "admin_password"
+              }
+            ],
+            [
+              {
+                "type": "get_attr",
+                "value": "custom_data"
+              }
+            ]
+          ],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoyNzAwMDAwMDAwMDAwLCJkZWxldGUiOjI3MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjoyNzAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.network_lab.azurerm_resource_group.this",
+            "module.vm_db.azurerm_network_interface.nic",
+            "module.vm_db.azurerm_public_ip.pip",
+            "module.vnet_db.azurerm_subnet.db_subnet",
+            "module.vnet_db.azurerm_virtual_network.vnet_db"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.vnet_db",
+      "mode": "managed",
+      "type": "azurerm_subnet",
+      "name": "db_subnet",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "address_prefixes": [
+              "10.2.1.0/24"
+            ],
+            "default_outbound_access_enabled": true,
+            "delegation": [],
+            "enforce_private_link_endpoint_network_policies": false,
+            "enforce_private_link_service_network_policies": false,
+            "id": "/subscriptions/172f18aa-9a05-4267-834e-5f14c13a5973/resourceGroups/rg-network-lab/providers/Microsoft.Network/virtualNetworks/vnet-db/subnets/db-subnet",
+            "name": "db-subnet",
+            "private_endpoint_network_policies": "Enabled",
+            "private_endpoint_network_policies_enabled": true,
+            "private_link_service_network_policies_enabled": true,
+            "resource_group_name": "rg-network-lab",
+            "service_endpoint_policy_ids": [],
+            "service_endpoints": [],
+            "timeouts": null,
+            "virtual_network_name": "vnet-db"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjoxODAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.network_lab.azurerm_resource_group.this",
+            "module.vnet_db.azurerm_virtual_network.vnet_db"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.vnet_db",
+      "mode": "managed",
+      "type": "azurerm_virtual_network",
+      "name": "vnet_db",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "address_space": [
+              "10.2.0.0/16"
+            ],
+            "bgp_community": "",
+            "ddos_protection_plan": [],
+            "dns_servers": [],
+            "edge_zone": "",
+            "encryption": [],
+            "flow_timeout_in_minutes": 0,
+            "guid": "f73cbe22-695c-4dfa-81b3-3646bbecea20",
+            "id": "/subscriptions/172f18aa-9a05-4267-834e-5f14c13a5973/resourceGroups/rg-network-lab/providers/Microsoft.Network/virtualNetworks/vnet-db",
+            "location": "canadacentral",
+            "name": "vnet-db",
+            "resource_group_name": "rg-network-lab",
+            "subnet": [
+              {
+                "address_prefix": "10.2.1.0/24",
+                "id": "/subscriptions/172f18aa-9a05-4267-834e-5f14c13a5973/resourceGroups/rg-network-lab/providers/Microsoft.Network/virtualNetworks/vnet-db/subnets/db-subnet",
+                "name": "db-subnet",
+                "security_group": ""
+              }
+            ],
+            "tags": {},
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjoxODAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.network_lab.azurerm_resource_group.this"
+          ]
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}

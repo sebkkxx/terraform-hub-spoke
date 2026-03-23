@@ -62,18 +62,22 @@ module "vm_web" {
 	source = "./modules/vm"
 	resource_group_name = module.network_lab.name
 	location = var.location
-	vm_name = "vm-web"
 	subnet_id = module.vnet_web.subnet
-	public_ip_enabled = true
-	vm_size = "Standard_B2s_v2"
+	vm_name = var.vm_web_name
+	vm_size = var.vm_size
+	admin_password = var.admin_password
+	admin_username = var.admin_username
+	public_ip = true
 }
 
 module "vm_db" {
 	source = "./modules/vm"
 	resource_group_name = module.network_lab.name
 	location = var.location
-	vm_name = "vm-db"
 	subnet_id = module.vnet_db.subnet
-	public_ip_enabled = false
-	vm_size = "Standard_B2s_v2"
+	vm_name = var.vm_db_name
+	vm_size = var.vm_size
+	admin_password = var.admin_password
+	admin_username = var.admin_username
+	public_ip = false
 }

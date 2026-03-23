@@ -37,3 +37,12 @@ variable "name_web_to_db" {
 variable "nsg_name" {
 	default = "nsg"
 }
+variable "vm_web_name" {
+	default = "vm-web"
+}
+variable "vm_db_name" {
+	default = "vm-db"
+}
+variable "vm_size" {
+	default = "Standard_B2als_v2"
+}
