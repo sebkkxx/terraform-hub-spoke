@@ -9,7 +9,7 @@ resource "azurerm_public_ip" "vm_public_ip" {
   location            = var.location
   resource_group_name = var.resource_group_name
   allocation_method   = "Static"
-  sku                 = "Standard"
+  sku 		      = "Standard"
 }
 
 resource "azurerm_network_interface" "vm_nic" {

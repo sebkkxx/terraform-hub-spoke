@@ -57,7 +57,6 @@ module "nsg" {
 	subnet_id = module.vnet_db.subnet
 
 }
-
 module "vm_web" {
 	source = "./modules/vm"
 	resource_group_name = module.network_lab.name
